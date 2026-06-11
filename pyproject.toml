@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vmisc"
+version = "0.1.0"
+description = "Virtual multiplex immunofluorescence marker prediction and prognosis modeling from H&E WSIs."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "LicenseRef-Proprietary-Research-Pending" }
+authors = [{ name = "Yinghua Xi" }]
+
+[tool.setuptools]
+packages = [
+  "marker",
+  "marker.models",
+  "preprocess",
+  "preprocess.datasets",
+  "preprocess.utils",
+  "preprocess.wsi_core",
+  "prognosis",
+  "prognosis.models",
+]

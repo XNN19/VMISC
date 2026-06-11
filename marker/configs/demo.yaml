@@ -1,0 +1,43 @@
+General:
+    epochs: &epochs 1
+    seed: 123456
+    acc_steps: 1
+    num_gpus: [0]
+
+Data:
+    dataset_name: 'patch_image'
+    dataframe: "marker/demo_data/csv_files/training_demo_100patches.csv"
+    is_embed: False
+    test_df: null
+    he_dir: "marker/demo_data/he_patches"
+    plex_dir: "marker/demo_data/highplex_ground_truth"
+    plex_channels: "marker/demo_data/markers.csv"
+    plex_log: True
+    batch_size: 8
+    num_workers: 0
+    wsi_batch: true
+
+Model:
+    name: "models.VirchowReg"
+    params:
+        is_embed: False
+        is_unfrozen: False
+        reghead_param:
+            input_size: 2560
+            hidden_size: 512
+            output_size: 19
+
+Optimizer:
+    optimizer:
+        name: Adam
+        params:
+            lr: 0.00003
+            amsgrad: False
+    lr_scheduler:
+        name: CosineAnnealingLR
+        params:
+            T_max: *epochs
+            last_epoch: -1
+
+Loss:
+    name: "torch.nn.MSELoss"

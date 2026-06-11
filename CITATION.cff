@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: "VMISC: Virtual Spatial Proteomics From Histopathology"
+message: "Please cite the VMISC manuscript and the upstream models/tools used in your experiment."
+type: software
+authors:
+  - family-names: Xi
+    given-names: Yinghua
+repository-code: "https://github.com/xxxx"
+abstract: "Code for virtual multiplex immunofluorescence prediction from H&E whole-slide images and multimodal prognosis modeling in colorectal cancer."
+keywords:
+  - computational pathology
+  - virtual staining
+  - spatial proteomics
+  - colorectal cancer
+  - survival prediction
+license: "LicenseRef-Proprietary-Research-Pending"
+

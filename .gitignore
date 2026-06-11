@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.bak
+*.bk
+*.py.bk
+*_bk.py
+phase1/models/__init__01.py
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environments
+.venv/
+venv/
+env/
+.conda/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Local data, outputs, and model artifacts
+/data/
+/datasets/
+outputs*/
+results*/
+workspace/
+checkpoints/
+*.ckpt
+*.pth
+*.pt
+*.h5
+*.hdf5
+*.svs
+*.tif
+*.tiff
+/Multimodal_Whole_Slide_Foundation_Model_for_Pathology.pdf
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

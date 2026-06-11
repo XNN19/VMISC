@@ -1,0 +1,37 @@
+name: vmisc
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - scikit-image
+  - h5py
+  - lifelines
+  - pillow
+  - matplotlib
+  - seaborn
+  - pyyaml
+  - tqdm
+  - openslide
+  - openslide-python
+  - pytorch
+  - torchvision
+  - pytorch-cuda=12.1
+  - pip:
+      - einops
+      - captum
+      - opencv-python
+      - pytorch-lightning
+      - scikit-survival
+      - tensorboardX
+      - tifffile
+      - timm
+      - torch-geometric
+      - torchmetrics
