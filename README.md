@@ -109,3 +109,7 @@ static/<slide_id>_preds.pt
 ```
 
 Prognosis clinical CSVs use `case_id`, `slide_id`, `survival_months`, and `censorship`.
+
+
+## Acknowledgments
+This project builds upon open-source repositories such as CLAM (https://github.com/mahmoodlab/CLAM), MCAT (https://github.com/mahmoodlab/MCAT), Minerva ([https://github.com/YyzHarry/imbalanced-regression](https://github.com/labsyspharm/minerva-public-website)), and Lifelines (http://github.com/CamDavidsonPilon/lifelines). We thank the authors and contributors to these repositories.
