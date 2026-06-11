@@ -2,13 +2,6 @@
 
 VMISC predicts virtual multiplex immunofluorescence marker profiles from H&E whole-slide images and uses the resulting virtual spatial-proteomics features for colorectal-cancer prognosis modeling.
 
-This folder is a compact public release in the same spirit as small model repositories such as MUSK: one README, one dependency file, portable configs, a demo notebook, and the smallest runnable code surface.
-
-## News
-
-- Consolidated WSI preprocessing into `preprocess/create_patches.py`.
-- Kept the public workflows to marker training, marker inference, visualization, prognosis data prep, train, and test.
-- Removed internal notes, duplicate model variants, and generated/private-data placeholders.
 
 ## Install
 
@@ -26,17 +19,9 @@ pip install -e .
 
 OpenSlide is required for WSI reading.
 
-## Model And Data
-
-Large files are intentionally excluded: slides, checkpoints, tensors, `.h5` patch files, OME-TIFFs, and clinical tables. Expected external inputs are:
-
-- H&E WSIs readable by OpenSlide.
-- CLAM-style coordinate `.h5` files from preprocessing.
-- VMISC marker checkpoint `fold_0.pth`.
-- Encoder weights for the selected pathology foundation model.
-- Clinical CSVs with `case_id`, `slide_id`, `survival_months`, and `censorship`.
-
 ## Quick Start
+
+### WSI preprocess
 
 Preprocess slides:
 
@@ -47,6 +32,8 @@ python preprocess/create_patches.py \
   --preset argo.csv \
   --seg --patch --stitch
 ```
+
+### V-MISC train
 
 Run the marker smoke test:
 
@@ -60,6 +47,8 @@ Train marker prediction:
 ```bash
 python marker/train.py --config configs/examples/marker.yaml --seed 123456 --devices 0
 ```
+
+### Inference highplex from WSI
 
 Run WSI inference:
 
@@ -75,11 +64,13 @@ python marker/infer.py \
   --devices 0
 ```
 
-Convert marker outputs to OME-TIFF:
+**Convert marker outputs to OME-TIFF**:
 
 ```bash
 python visualize.py --input outputs/vmisc_inference --output-dir outputs/vmisc_inference/ometiff
 ```
+
+### Clinical multimodal prognosis model
 
 Prepare and train the prognosis model:
 
@@ -102,21 +93,7 @@ python prognosis/test.py \
   --output-dir results/prognosis_test
 ```
 
-## Layout
 
-```text
-vmisc-pull/
-|-- configs/examples/        # public YAML templates
-|-- marker/                  # marker prediction train/infer/demo code
-|-- notebooks/               # demo/data-contract notebooks
-|-- preprocess/              # WSI tiling utilities
-|-- prognosis/               # prognosis prep/train/test code
-|-- visualize.py             # OME-TIFF export
-|-- environment.yml
-|-- requirements.txt
-|-- pyproject.toml
-`-- README.md
-```
 
 ## Data Contracts
 
